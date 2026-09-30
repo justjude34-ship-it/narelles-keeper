@@ -2,6 +2,10 @@ const fs = require("fs");
 const path = require("path");
 const dir = __dirname;
 const assets = path.join(dir, "assets");
+if (!fs.existsSync(assets)) {
+  console.log("No assets dir; skip hero decode");
+  process.exit(0);
+}
 const parts = fs.readdirSync(assets)
   .filter((f) => /^lotus-cool-cyan-hero-\d+\.b64$/.test(f))
   .sort((a, b) => {
@@ -10,8 +14,8 @@ const parts = fs.readdirSync(assets)
     return na - nb;
   });
 if (!parts.length) {
-  console.error("No hero b64 parts found");
-  process.exit(1);
+  console.log("No hero b64 parts; skip (video hosted externally)");
+  process.exit(0);
 }
 const b64 = parts.map((f) => fs.readFileSync(path.join(assets, f), "utf8")).join("");
 fs.mkdirSync(assets, { recursive: true });
