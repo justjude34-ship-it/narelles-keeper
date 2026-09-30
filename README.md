@@ -1,14 +1,18 @@
 # Narelle's Keeper
 
-A quiet companion PWA for Narelle — living well day to day.
+A quiet companion PWA for Narelle — living well day to day. Ara speaks softly.
 
-## Step 1 (this release)
+## Step 2 (this release)
 
-App shell with dark Keeper UI, Today greeting, Buddha hero, Rosie placeholder, and four nav stubs. No meds, appointments, or alarms yet.
+- Sage accent (replaces gold)
+- Medicines room: add / edit / remove meds (name, dose, time(s)), tick taken for today, persisted in `localStorage`
+- Alarms scaffolding: Notification permission + help copy; schedule browser notifications for upcoming doses while the tab/app is open (Service Worker `showNotification` best-effort)
+- Today shows next-due in sky blue with warm Ara copy
+- Soft placeholder for Buddha statue + greenery (photo later)
+
+**Not yet:** full iOS background push (needs Web Push + backend — noted as TODO), appointments, Rosie photo.
 
 ## Local
-
-Open `index.html` in a browser, or serve the folder:
 
 ```bash
 npx serve .
@@ -16,4 +20,4 @@ npx serve .
 
 ## Deploy
 
-Static site — connect this repo to Vercel or Netlify. Root is the publish directory.
+Static site on Vercel project `my-keeper-home`, live alias `https://narelles-keeper.vercel.app/`.

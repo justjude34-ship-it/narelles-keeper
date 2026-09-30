@@ -1,4 +1,4 @@
-const CACHE = "narelles-keeper-v1";
+const CACHE = "narelles-keeper-v2";
 const ASSETS = [
   "./",
   "./index.html",
@@ -34,3 +34,18 @@ self.addEventListener("fetch", function (e) {
     })
   );
 });
+
+// Best-effort: show notifications scheduled by the open page via registration.showNotification
+self.addEventListener("notificationclick", function (e) {
+  e.notification.close();
+  e.waitUntil(
+    clients.matchAll({ type: "window", includeUncontrolled: true }).then(function (list) {
+      for (let i = 0; i < list.length; i++) {
+        if (list[i].url && "focus" in list[i]) return list[i].focus();
+      }
+      if (clients.openWindow) return clients.openWindow("./");
+    })
+  );
+});
+
+// TODO (future): listen for push events from a backend for reliable iOS background alerts.
