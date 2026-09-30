@@ -33,65 +33,84 @@
     </header>
 
     <main class="stage">
+      <!-- Today -->
       <section id="panel-today" class="panel is-active" role="tabpanel" aria-labelledby="nav-today">
-        <p id="greeting" class="greeting">Good evening, Narelle</p>
+        <p id="greeting" class="greeting">Good evening, Narelle — it's Ara</p>
         <h1 class="sweep-heading">Today</h1>
         <p class="lede">A calm place to begin the day.</p>
 
         <div class="hero" aria-hidden="true">
-          <div class="buddha-glow"></div>
-          <svg class="buddha" viewBox="0 0 240 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Serene seated figure">
-            <ellipse cx="120" cy="78" rx="58" ry="62" fill="url(#halo)" opacity="0.35"/>
-            <path d="M60 250 C70 190, 80 155, 95 135 C100 150, 140 150, 145 135 C160 155, 170 190, 180 250 Z"
-                  fill="url(#robe)" stroke="#e0b84a" stroke-width="1.2" opacity="0.9"/>
-            <ellipse cx="120" cy="248" rx="72" ry="14" fill="#1a221c" opacity="0.55"/>
-            <path d="M55 245 Q120 268 185 245" fill="none" stroke="#f6e7a1" stroke-width="1.4" opacity="0.45"/>
-            <ellipse cx="120" cy="175" rx="28" ry="36" fill="url(#skin)"/>
-            <ellipse cx="120" cy="195" rx="18" ry="10" fill="#f3d67a" opacity="0.55"/>
-            <ellipse cx="120" cy="88" rx="34" ry="40" fill="url(#skin)"/>
-            <ellipse cx="120" cy="58" rx="30" ry="22" fill="#1c2420"/>
-            <ellipse cx="120" cy="42" rx="12" ry="10" fill="#24302a"/>
-            <path d="M105 90 Q112 94 119 90" fill="none" stroke="#2a3530" stroke-width="1.8" stroke-linecap="round"/>
-            <path d="M121 90 Q128 94 135 90" fill="none" stroke="#2a3530" stroke-width="1.8" stroke-linecap="round"/>
-            <path d="M112 105 Q120 111 128 105" fill="none" stroke="#6a5a3a" stroke-width="1.4" stroke-linecap="round" opacity="0.7"/>
-            <ellipse cx="86" cy="95" rx="6" ry="12" fill="url(#skin)"/>
-            <ellipse cx="154" cy="95" rx="6" ry="12" fill="url(#skin)"/>
-            <defs>
-              <radialGradient id="halo" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#f6e7a1"/>
-                <stop offset="100%" stop-color="#f6e7a1" stop-opacity="0"/>
-              </radialGradient>
-              <linearGradient id="robe" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#2a3830"/>
-                <stop offset="50%" stop-color="#1a2420"/>
-                <stop offset="100%" stop-color="#324038"/>
-              </linearGradient>
-              <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#f3e2b8"/>
-                <stop offset="100%" stop-color="#e0b84a"/>
-              </linearGradient>
-            </defs>
-          </svg>
+          <div class="hero-placeholder">
+            <strong>A quiet corner</strong>
+            <p>Buddha statue and greenery will settle here soon.</p>
+          </div>
         </div>
 
-        <div class="chips" aria-label="Sample status">
-          <span class="chip chip-due">Due soon</span>
-          <span class="chip chip-quiet">All quiet</span>
+        <div class="today-card" aria-live="polite">
+          <h2>Next medicine</h2>
+          <p id="next-due" class="next-due is-quiet">All quiet for now</p>
+          <p id="next-due-detail" class="next-due-detail"></p>
         </div>
 
-        <p class="footnote">Medicines and appointments arrive in the next steps. For now — breathe, and be here.</p>
+        <div id="today-chips" class="chips" aria-label="Today status"></div>
+
+        <p class="footnote">Ara is here with you. Medicines live in the Medicines room — tick them when you've taken them.</p>
       </section>
 
+      <!-- Medicines -->
       <section id="panel-medicines" class="panel" role="tabpanel" aria-labelledby="nav-medicines" hidden>
         <h1 class="sweep-heading">Medicines</h1>
-        <p class="lede coming">Coming soon — gentle reminders, when you're ready.</p>
+        <p class="lede">Your list, kept simply. Reminders while this page is open.</p>
+
+        <div class="alarms-card">
+          <h2>Gentle reminders</h2>
+          <p class="help-copy">
+            Ara can nudge you when a dose is due — while this tab (or the app) is open.
+            Tap below to allow notifications. On iPhone, full background alerts need a later push setup; for now, keep Keeper handy.
+          </p>
+          <p id="alarms-status" class="alarms-status" aria-live="polite"></p>
+          <button type="button" class="btn btn-primary" id="btn-enable-alarms">Allow reminders</button>
+        </div>
+
+        <div class="meds-toolbar">
+          <button type="button" class="btn btn-primary" id="btn-add-med">Add medicine</button>
+        </div>
+
+        <div id="med-form" class="form-card" hidden>
+          <h2 id="med-form-title">Add medicine</h2>
+          <form id="form-med" autocomplete="off">
+            <input type="hidden" id="med-id" value="" />
+            <div class="field">
+              <label for="med-name">Name</label>
+              <input id="med-name" name="name" type="text" required maxlength="80" placeholder="e.g. Vitamin D" />
+            </div>
+            <div class="field">
+              <label for="med-dose">Dose</label>
+              <input id="med-dose" name="dose" type="text" maxlength="60" placeholder="e.g. 1 tablet" />
+            </div>
+            <div class="field">
+              <label>Time(s)</label>
+              <div id="times-list" class="times-list"></div>
+              <p class="hint">Add one or more times for today and every day.</p>
+              <button type="button" class="btn btn-ghost btn-sm" id="btn-add-time" style="margin-top:0.5rem">+ Add time</button>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Save</button>
+              <button type="button" class="btn btn-ghost" id="btn-cancel-med">Cancel</button>
+            </div>
+          </form>
+        </div>
+
+        <ul id="med-list" class="med-list" aria-live="polite"></ul>
       </section>
 
+      <!-- Appointments stub -->
       <section id="panel-appointments" class="panel" role="tabpanel" aria-labelledby="nav-appointments" hidden>
         <h1 class="sweep-heading">Appointments</h1>
         <p class="lede coming">Coming soon — what's ahead, kept simply.</p>
       </section>
 
+      <!-- Dog / Rosie stub -->
       <section id="panel-dog" class="panel" role="tabpanel" aria-labelledby="nav-dog" hidden>
         <h1 class="sweep-heading">Rosie</h1>
         <p class="lede coming">Coming soon — a soft corner for our girl.</p>
