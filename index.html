@@ -14,6 +14,27 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <div id="welcome-splash" role="dialog" aria-modal="true" aria-labelledby="welcome-title" style="position:fixed;inset:0;z-index:40;display:flex;align-items:center;justify-content:center;padding:1.25rem;background:rgba(15,20,18,0.96);">
+    <div style="max-width:22rem;width:100%;text-align:center;">
+      <img src="https://iili.io/naTBa1e.jpg" alt="" style="width:100%;border-radius:1.25rem;display:block;margin:0 auto 1rem;" />
+      <h1 id="welcome-title" class="sweep-heading" style="font-size:2rem;">Narelle's Keeper</h1>
+      <p style="color:#a8b0a8;margin:0 0 1.25rem;">A quiet companion for living well day to day.</p>
+      <button type="button" id="btn-enter-keeper" class="btn btn-primary">Come in</button>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var splash = document.getElementById("welcome-splash");
+      var enter = document.getElementById("btn-enter-keeper");
+      if (!splash || !enter) return;
+      try { if (sessionStorage.getItem("nk.welcome.seen") === "1") splash.style.display = "none"; } catch (e) {}
+      enter.addEventListener("click", function () {
+        splash.style.display = "none";
+        try { sessionStorage.setItem("nk.welcome.seen", "1"); } catch (e) {}
+      });
+    })();
+  </script>
   <div class="ambient" aria-hidden="true">
     <div class="glow glow-a"></div>
     <div class="glow glow-b"></div>
@@ -40,10 +61,7 @@
         <p class="lede">A calm place to begin the day.</p>
 
         <div class="hero" aria-hidden="true">
-          <div class="hero-placeholder">
-            <strong>A quiet corner</strong>
-            <p>Buddha statue and greenery will settle here soon.</p>
-          </div>
+          <img src="https://iili.io/naTqwJf.jpg" alt="" style="width:100%;max-width:20rem;border-radius:1.5rem;display:block;margin:0 auto;" />
         </div>
 
         <div class="today-card" aria-live="polite">
@@ -55,13 +73,18 @@
         <div id="today-chips" class="chips" aria-label="Today status"></div>
 
         <p class="footnote">Ara is here with you. Medicines live in the Medicines room — tick them when you've taken them.</p>
+        <div class="hero" aria-hidden="true" style="margin-top:1.75rem;">
+          <img src="https://iili.io/naTBWhB.jpg" alt="" style="width:100%;border-radius:1.5rem;display:block;" />
+        </div>
       </section>
 
       <!-- Medicines -->
       <section id="panel-medicines" class="panel" role="tabpanel" aria-labelledby="nav-medicines" hidden>
         <h1 class="sweep-heading">Medicines</h1>
         <p class="lede">Your list, kept simply. Reminders while this page is open.</p>
-
+        <div class="hero" aria-hidden="true">
+          <img src="https://iili.io/naTBUIp.jpg" alt="" style="width:100%;border-radius:1.5rem;display:block;margin:0 0 1.25rem;" />
+        </div>
         <div class="alarms-card">
           <h2>Gentle reminders</h2>
           <p class="help-copy">
@@ -108,12 +131,18 @@
       <section id="panel-appointments" class="panel" role="tabpanel" aria-labelledby="nav-appointments" hidden>
         <h1 class="sweep-heading">Appointments</h1>
         <p class="lede coming">Coming soon — what's ahead, kept simply.</p>
+        <div class="hero" aria-hidden="true" style="margin-top:1rem;">
+          <img src="https://iili.io/naTBtp4.jpg" alt="" style="width:100%;border-radius:1.5rem;display:block;" />
+        </div>
       </section>
 
       <!-- Dog / Rosie stub -->
       <section id="panel-dog" class="panel" role="tabpanel" aria-labelledby="nav-dog" hidden>
         <h1 class="sweep-heading">Rosie</h1>
         <p class="lede coming">Coming soon — a soft corner for our girl.</p>
+        <div class="hero" aria-hidden="true" style="margin-top:1rem;">
+          <img src="https://iili.io/naTC3Yb.jpg" alt="" style="width:100%;border-radius:1.5rem;display:block;" />
+        </div>
       </section>
     </main>
 
