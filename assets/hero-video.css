@@ -1,0 +1,56 @@
+/* Today hero video + cool cyan accent overrides */
+:root {
+  --card-border: rgba(126, 182, 217, 0.22);
+}
+
+.sweep-heading {
+  background: linear-gradient(
+    100deg,
+    #ffffff 0%,
+    #ffffff 38%,
+    #c8e8f5 48%,
+    var(--sky) 52%,
+    #a8d4ea 56%,
+    #ffffff 66%,
+    #ffffff 100%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero--video {
+  width: 100%;
+  max-width: 22rem;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 12rem;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  background: #000;
+}
+
+.hero-video,
+.hero--video .hero-fallback {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 12rem;
+  max-height: 18rem;
+  object-fit: cover;
+  border-radius: 1.5rem;
+}
+
+.hero-veil {
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(0, 0, 0, 0.15) 40%,
+    rgba(0, 0, 0, 0.45) 100%
+  );
+}
