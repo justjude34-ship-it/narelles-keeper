@@ -133,6 +133,7 @@
 .hero--video {
   width: 100%;
   max-width: none;
+  margin: 1rem 0 1.5rem;
   margin-left: 0;
   margin-right: 0;
   min-height: 14rem;
@@ -237,3 +238,7 @@
   flex-direction: column;
   gap: 0.5rem;
 }
+
+/* Text-only welcome / Rosie */
+.welcome-splash.splash-text-only .splash-frame { display: none; }
+.rosie-card.rosie-text-only .rosie-dot { display: none; }
