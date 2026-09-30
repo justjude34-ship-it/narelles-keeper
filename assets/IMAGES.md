@@ -1,15 +1,10 @@
-# Photo assets (locked names)
+# Photo assets
 
-| File | Where it shows |
-|------|----------------|
-| `hero-buddha-blue-lotus.jpg` | Today — top hero (poster / still fallback) |
-| `welcome-buddha-lotus-birds.jpg` | Welcome splash (before Today) |
-| `today-closer-lotus-water.jpg` | Today — bottom closer |
-| `meds-carved-buddha.jpg` | Medicines — room header (approved) |
-| `appointments-lotus-rings.jpg` | Appointments — room header (approved) |
-| `rosie-butterfly.jpg` | Dog / Rosie panel |
-| `rosie.jpg` | Topbar Rosie card + Rosie room photo |
+Decorative still images removed (Judith 2026-10-01). Hero only:
 
-Public CDN mirrors (iili): welcome `naTBa1e`, today poster `naTqwJf`, today closer `naTBWhB`, meds `naTBUIp`, appointments `naTBtp4`, Rosie butterfly `naTC3Yb`, Rosie photo `naV5gqJ`.
+| Asset | Where |
+|-------|--------|
+| Option B cool cyan lotus video (hosted) | Today — single hero under lede |
 
-Missing files fail gracefully (labeled placeholders stay visible).
+Public video: `https://n.uguu.se/YyzZhZPL.mp4` (720p h264 + aac from hero-option-b.mp4).
+Rosie topbar is text-only for now. Welcome splash is text-only.
