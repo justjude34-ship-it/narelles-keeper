@@ -117,7 +117,11 @@
   }
 
   function timeGreeting(d) {
-    const h = d.getHours();
+    const h = Number(new Intl.DateTimeFormat("en-AU", {
+      timeZone: "Australia/Brisbane",
+      hour: "2-digit",
+      hourCycle: "h23"
+    }).format(d));
     if (h < 12) return "Good morning";
     if (h < 17) return "Good afternoon";
     return "Good evening";
@@ -490,4 +494,3 @@
       list.appendChild(li);
     });
   }
-
