@@ -144,6 +144,15 @@
 
       <!-- Medicines -->
       <section id="panel-medicines" class="panel" role="tabpanel" aria-labelledby="nav-medicines" hidden>
+        <div class="photo-slot photo-slot-header" data-slot="meds">
+          <img src="https://iili.io/naTBUIp.jpg" alt="" loading="lazy"
+            onerror="window.nkImgFail && window.nkImgFail(this)" />
+          <div class="photo-fallback">
+            <strong>Medicines</strong>
+            <p>Carved Buddha with pink and teal lotus.</p>
+            <span class="path-hint">assets/meds-carved-buddha.jpg</span>
+          </div>
+        </div>
 
         <h1 class="sweep-heading">Medicines</h1>
         <p class="lede">Your list, kept simply. Reminders while this page is open.</p>
@@ -192,6 +201,16 @@
 
       <!-- Appointments -->
       <section id="panel-appointments" class="panel" role="tabpanel" aria-labelledby="nav-appointments" hidden>
+        <div class="photo-slot photo-slot-header" data-slot="appts">
+          <img src="https://iili.io/naTBtp4.jpg" alt="" loading="lazy"
+            onerror="window.nkImgFail && window.nkImgFail(this)" />
+          <div class="photo-fallback">
+            <strong>Appointments</strong>
+            <p>Lotus on water with light rings.</p>
+            <span class="path-hint">assets/appointments-lotus-rings.jpg</span>
+          </div>
+        </div>
+
         <h1 class="sweep-heading">Appointments</h1>
         <p class="lede">What's ahead, kept simply. Checklist for what to bring.</p>
 
@@ -287,6 +306,7 @@
   </div>
 
   <script>
+    // Early img fallback so missing assets don't flash broken icons before app.js
     window.nkImgFail = function (img) {
       try {
         img.hidden = true;
