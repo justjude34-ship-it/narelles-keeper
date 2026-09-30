@@ -20,6 +20,7 @@
     <div class="glow glow-c"></div>
   </div>
 
+  <!-- Welcome splash (dismiss → Today) -->
   <div id="welcome-splash" class="welcome-splash" role="dialog" aria-modal="true" aria-labelledby="welcome-title" hidden>
     <div class="splash-frame">
       <div class="photo-slot" data-slot="welcome">
@@ -53,6 +54,7 @@
     </header>
 
     <main class="stage">
+      <!-- Today -->
       <section id="panel-today" class="panel is-active" role="tabpanel" aria-labelledby="nav-today">
         <div class="hero hero--video" aria-label="Buddha on lotus">
           <video
@@ -139,16 +141,8 @@
         </div>
       </section>
 
+      <!-- Medicines -->
       <section id="panel-medicines" class="panel" role="tabpanel" aria-labelledby="nav-medicines" hidden>
-        <div class="photo-slot photo-slot-header" data-slot="meds">
-          <img src="https://iili.io/naTBUIp.jpg" alt="" loading="lazy"
-            onerror="window.nkImgFail && window.nkImgFail(this)" />
-          <div class="photo-fallback">
-            <strong>Medicines</strong>
-            <p>Carved Buddha header photo soon.</p>
-            <span class="path-hint">assets/meds-carved-buddha.jpg</span>
-          </div>
-        </div>
 
         <h1 class="sweep-heading">Medicines</h1>
         <p class="lede">Your list, kept simply. Reminders while this page is open.</p>
@@ -195,6 +189,7 @@
         <ul id="med-list" class="med-list" aria-live="polite"></ul>
       </section>
 
+      <!-- Appointments -->
       <section id="panel-appointments" class="panel" role="tabpanel" aria-labelledby="nav-appointments" hidden>
         <h1 class="sweep-heading">Appointments</h1>
         <p class="lede">What's ahead, kept simply. Checklist for what to bring.</p>
@@ -243,18 +238,9 @@
         </div>
 
         <ul id="appt-list" class="appt-list" aria-live="polite"></ul>
-
-        <div class="photo-slot photo-slot-sm" data-slot="appts-close">
-          <img src="https://iili.io/naTBtp4.jpg" alt="" loading="lazy"
-            onerror="window.nkImgFail && window.nkImgFail(this)" />
-          <div class="photo-fallback">
-            <strong>Lotus rings</strong>
-            <p>Appointments closing image waits here.</p>
-            <span class="path-hint">assets/appointments-lotus-rings.jpg</span>
-          </div>
-        </div>
       </section>
 
+      <!-- Dog / Rosie -->
       <section id="panel-dog" class="panel" role="tabpanel" aria-labelledby="nav-dog" hidden>
         <h1 class="sweep-heading">Rosie</h1>
         <p class="lede">A soft corner for our girl.</p>
@@ -300,6 +286,7 @@
   </div>
 
   <script>
+    // Early img fallback so missing assets don't flash broken icons before app.js
     window.nkImgFail = function (img) {
       try {
         img.hidden = true;
