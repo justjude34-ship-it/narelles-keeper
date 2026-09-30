@@ -108,6 +108,8 @@
 
         <p class="footnote">Ara is here with you. Medicines and appointments live in their rooms — tick them when you're ready.</p>
 
+        <button type="button" class="ara-voice-btn" id="btn-ara-voice" aria-pressed="true">Ara voice on</button>
+
       </section>
 
       <!-- Medicines -->
@@ -247,7 +249,7 @@
         img.hidden = true;
         img.removeAttribute("src");
         var slot = img.closest(".photo-slot");
-        if (slot) slot.classList.remove("has-image");
+        if (slot) img.style.display = "none";
         var dot = img.closest(".rosie-dot");
         if (dot) img.style.display = "none";
       } catch (e) { /* ignore */ }
