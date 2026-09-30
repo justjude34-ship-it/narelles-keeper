@@ -60,9 +60,35 @@
         <h1 class="sweep-heading">Today</h1>
         <p class="lede">A calm place to begin the day.</p>
 
-        <div class="hero" aria-hidden="true">
-          <img src="https://iili.io/naTqwJf.jpg" alt="" style="width:100%;max-width:20rem;border-radius:1.5rem;display:block;margin:0 auto;" />
+        <div class="hero hero--video" aria-hidden="true">
+          <video
+            class="hero-video"
+            src="https://h.uguu.se/vQhdEfkO.mp4"
+            poster="https://iili.io/naTqwJf.jpg"
+            muted
+            autoplay
+            loop
+            playsinline
+            webkit-playsinline
+            preload="metadata"
+          ></video>
+          <img class="hero-fallback" src="https://iili.io/naTqwJf.jpg" alt="" hidden />
+          <div class="hero-veil"></div>
         </div>
+        <script>
+          (function () {
+            var v = document.querySelector("#panel-today .hero-video");
+            var fb = document.querySelector("#panel-today .hero-fallback");
+            if (!v || !fb) return;
+            function showFallback() {
+              v.hidden = true;
+              fb.hidden = false;
+            }
+            v.addEventListener("error", showFallback);
+            var p = v.play();
+            if (p && p.catch) p.catch(function () {});
+          })();
+        </script>
 
         <div class="today-card" aria-live="polite">
           <h2>Next medicine</h2>
