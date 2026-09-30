@@ -1,10 +1,9 @@
-const CACHE = "narelles-keeper-v9";
+const CACHE = "narelles-keeper-v10";
 const ASSETS = [
   "./",
   "./index.html",
   "./styles.css",
-  "./assets/nk-app-a.js",
-  "./assets/nk-app-b.js",
+  "./app.js",
   "./manifest.json",
   "./assets/icon.svg",
   "./assets/placements.css"
