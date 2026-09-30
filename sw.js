@@ -3,7 +3,8 @@ const ASSETS = [
   "./",
   "./index.html",
   "./styles.css",
-  "./app.js",
+  "./assets/nk-app-a.js",
+  "./assets/nk-app-b.js",
   "./manifest.json",
   "./assets/icon.svg",
   "./assets/placements.css"
@@ -42,7 +43,7 @@ self.addEventListener("fetch", function (e) {
     return;
   }
   var url = e.request.url || "";
-  if (url.indexOf("styles.css") !== -1 || url.indexOf("placements.css") !== -1 || url.indexOf("app.js") !== -1 || url.indexOf("sw.js") !== -1) {
+  if (url.indexOf("styles.css") !== -1 || url.indexOf("placements.css") !== -1 || url.indexOf("nk-app") !== -1 || url.indexOf("app.js") !== -1 || url.indexOf("sw.js") !== -1) {
     e.respondWith(
       fetch(e.request).then(function (res) {
         var copy = res.clone();
