@@ -1,4 +1,4 @@
-const CACHE = "narelles-keeper-v10";
+const CACHE = "narelles-keeper-v11";
 const ASSETS = [
   "./",
   "./index.html",
