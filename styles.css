@@ -1,15 +1,15 @@
 :root {
-  --bg: #0f1412;
-  --bg-soft: #151b18;
-  --text: #f5f3eb;
-  --muted: #a8b0a8;
-  --sage-light: #d4e2ce;
-  --sage: #8fa88a;
-  --sage-mid: #b5c9ae;
-  --sky: #7eb6d9;
-  --sky-soft: rgba(126, 182, 217, 0.18);
+  --bg: #05060a;
+  --bg-soft: #0b0d12;
+  --text: #f7f8fb;
+  --muted: #b8c0c8;
+  --blue-light: #b9e4ff;
+  --blue: #7ec8f0;
+  --blue-mid: #4aa3d8;
+  --sky: #7ec8f0;
+  --sky-soft: rgba(126, 200, 240, 0.18);
   --card: rgba(255, 255, 255, 0.05);
-  --card-border: rgba(143, 168, 138, 0.22);
+  --card-border: rgba(126, 200, 240, 0.22);
   --danger: #c97a7a;
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --dock-h: 5.5rem;
@@ -35,7 +35,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Ambient sage light drift */
+/* Ambient lotus-blue light drift */
 .ambient {
   position: fixed;
   inset: 0;
@@ -55,7 +55,7 @@ body {
 .glow-a {
   width: 42vmin;
   height: 42vmin;
-  background: var(--sage-light);
+  background: var(--blue-light);
   top: -8%;
   left: 10%;
 }
@@ -63,7 +63,7 @@ body {
 .glow-b {
   width: 55vmin;
   height: 55vmin;
-  background: var(--sage);
+  background: var(--blue);
   bottom: 5%;
   right: -12%;
   animation-duration: 36s;
@@ -74,7 +74,7 @@ body {
 .glow-c {
   width: 30vmin;
   height: 30vmin;
-  background: var(--sage-mid);
+  background: var(--blue-mid);
   top: 42%;
   left: 55%;
   animation-duration: 22s;
@@ -112,7 +112,7 @@ body {
   margin: 0;
   font-size: 0.85rem;
   letter-spacing: 0.04em;
-  color: var(--sage-mid);
+  color: var(--blue-mid);
   font-weight: 500;
 }
 
@@ -131,9 +131,9 @@ body {
   width: 2.25rem;
   height: 2.25rem;
   border-radius: 50%;
-  background: linear-gradient(145deg, #3a4540, #1a221c);
-  border: 1px solid rgba(181, 201, 174, 0.4);
-  box-shadow: 0 0 12px rgba(143, 168, 138, 0.2);
+  background: linear-gradient(145deg, #1a2430, #0b0d12);
+  border: 1px solid rgba(126, 200, 240, 0.4);
+  box-shadow: 0 0 12px rgba(74, 163, 216, 0.25);
   flex-shrink: 0;
 }
 
@@ -191,9 +191,9 @@ body {
     100deg,
     #ffffff 0%,
     #ffffff 38%,
-    var(--sage-light) 48%,
-    var(--sage) 52%,
-    var(--sage-mid) 56%,
+    #b9e4ff 48%,
+    #7ec8f0 52%,
+    #4aa3d8 56%,
     #ffffff 66%,
     #ffffff 100%
   );
@@ -201,10 +201,10 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: sageSweep 7s ease-in-out infinite;
+  animation: blueSweep 7s ease-in-out infinite;
 }
 
-@keyframes sageSweep {
+@keyframes blueSweep {
   0%, 100% { background-position: 100% 50%; }
   50% { background-position: 0% 50%; }
 }
@@ -239,7 +239,7 @@ body {
   padding: 1.75rem 1.25rem;
   text-align: center;
   border-radius: 1.5rem;
-  background: radial-gradient(circle at 50% 40%, rgba(181, 201, 174, 0.18), transparent 70%), var(--card);
+  background: radial-gradient(circle at 50% 40%, rgba(126, 200, 240, 0.18), transparent 70%), var(--card);
   border: 1px solid var(--card-border);
 }
 
@@ -252,7 +252,7 @@ body {
 .hero-placeholder strong {
   display: block;
   margin-bottom: 0.35rem;
-  color: var(--sage-mid);
+  color: var(--blue-mid);
   font-weight: 600;
   font-size: 1rem;
 }
@@ -284,7 +284,7 @@ body {
 }
 
 .next-due.is-quiet {
-  color: var(--sage-mid);
+  color: var(--blue-mid);
   font-weight: 500;
 }
 
@@ -312,13 +312,13 @@ body {
 }
 
 .chip-due {
-  color: #0f1412;
+  color: #05060a;
   background: var(--sky);
   font-weight: 600;
 }
 
 .chip-quiet {
-  color: var(--sage-light);
+  color: var(--blue-light);
   background: var(--card);
   border-color: var(--card-border);
 }
@@ -353,13 +353,13 @@ body {
 }
 
 .btn-primary {
-  background: var(--sage);
-  color: #0f1412;
+  background: var(--blue);
+  color: #05060a;
 }
 
 .btn-primary:hover,
 .btn-primary:focus-visible {
-  background: var(--sage-mid);
+  background: var(--blue-mid);
   outline: none;
 }
 
@@ -371,8 +371,8 @@ body {
 
 .btn-ghost:hover,
 .btn-ghost:focus-visible {
-  border-color: var(--sage);
-  color: var(--sage-light);
+  border-color: var(--blue);
+  color: var(--blue-light);
   outline: none;
 }
 
@@ -402,7 +402,7 @@ body {
 .form-card h2 {
   margin: 0 0 0.5rem;
   font-size: 1.05rem;
-  color: var(--sage-light);
+  color: var(--blue-light);
   font-weight: 600;
 }
 
@@ -416,7 +416,7 @@ body {
 .alarms-status {
   margin: 0 0 0.85rem;
   font-size: 0.9rem;
-  color: var(--sage-mid);
+  color: var(--blue-mid);
 }
 
 .alarms-status.is-denied {
@@ -469,7 +469,7 @@ body {
   justify-content: space-between;
   gap: 0.75rem;
   padding: 0.55rem 0;
-  border-top: 1px solid rgba(143, 168, 138, 0.15);
+  border-top: 1px solid rgba(126, 200, 240, 0.15);
 }
 
 .dose-time {
@@ -494,12 +494,12 @@ body {
 .dose-check input {
   width: 1.35rem;
   height: 1.35rem;
-  accent-color: var(--sage);
+  accent-color: var(--blue);
   cursor: pointer;
 }
 
 .dose-check.is-done {
-  color: var(--sage-mid);
+  color: var(--blue-mid);
 }
 
 .empty-state {
@@ -524,7 +524,7 @@ body {
   display: block;
   margin-bottom: 0.35rem;
   font-size: 0.85rem;
-  color: var(--sage-mid);
+  color: var(--blue-mid);
   font-weight: 500;
 }
 
@@ -544,8 +544,8 @@ body {
 .field input:focus,
 .field textarea:focus {
   outline: none;
-  border-color: var(--sage);
-  box-shadow: 0 0 0 2px rgba(143, 168, 138, 0.25);
+  border-color: var(--blue);
+  box-shadow: 0 0 0 2px rgba(126, 200, 240, 0.25);
 }
 
 .field .hint {
@@ -591,9 +591,9 @@ body {
   grid-template-columns: repeat(4, 1fr);
   gap: 0.25rem;
   padding: 0.55rem 0.65rem calc(0.55rem + var(--safe-bottom));
-  background: rgba(15, 20, 18, 0.92);
+  background: rgba(5, 6, 10, 0.94);
   backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(143, 168, 138, 0.15);
+  border-top: 1px solid rgba(126, 200, 240, 0.15);
   z-index: 10;
 }
 
@@ -625,8 +625,8 @@ body {
 }
 
 .dock-btn.is-active {
-  color: var(--sage-mid);
-  background: rgba(143, 168, 138, 0.12);
+  color: var(--blue-light);
+  background: rgba(126, 200, 240, 0.12);
 }
 
 .dock-icon {
