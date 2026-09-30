@@ -1,4 +1,4 @@
-const CACHE = "narelles-keeper-v2";
+const CACHE = "narelles-keeper-v3";
 const ASSETS = [
   "./",
   "./index.html",
@@ -24,6 +24,23 @@ self.addEventListener("activate", function (e) {
 
 self.addEventListener("fetch", function (e) {
   if (e.request.method !== "GET") return;
+  // Network-first for navigations/HTML so phones don't stick on an old shell
+  var accept = e.request.headers.get("accept") || "";
+  var isNav = e.request.mode === "navigate" || accept.indexOf("text/html") !== -1;
+  if (isNav) {
+    e.respondWith(
+      fetch(e.request).then(function (res) {
+        var copy = res.clone();
+        caches.open(CACHE).then(function (c) { c.put(e.request, copy); });
+        return res;
+      }).catch(function () {
+        return caches.match(e.request).then(function (hit) {
+          return hit || caches.match("./index.html");
+        });
+      })
+    );
+    return;
+  }
   e.respondWith(
     caches.match(e.request).then(function (hit) {
       return hit || fetch(e.request).then(function (res) {
@@ -35,7 +52,6 @@ self.addEventListener("fetch", function (e) {
   );
 });
 
-// Best-effort: show notifications scheduled by the open page via registration.showNotification
 self.addEventListener("notificationclick", function (e) {
   e.notification.close();
   e.waitUntil(
@@ -47,5 +63,3 @@ self.addEventListener("notificationclick", function (e) {
     })
   );
 });
-
-// TODO (future): listen for push events from a backend for reliable iOS background alerts.
