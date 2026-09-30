@@ -21,19 +21,8 @@
     <div class="glow glow-c"></div>
   </div>
 
-  <!-- Welcome splash (dismiss → Today) -->
-  <div id="welcome-splash" class="welcome-splash" role="dialog" aria-modal="true" aria-labelledby="welcome-title" hidden>
-    <div class="splash-frame">
-      <div class="photo-slot" data-slot="welcome">
-        <img src="https://iili.io/naTBa1e.jpg" alt="" loading="eager"
-          onerror="window.nkImgFail && window.nkImgFail(this)" />
-        <div class="photo-fallback">
-          <strong>Welcome</strong>
-          <p>Buddha, blue lotus, and birds welcome you here.</p>
-          <span class="path-hint">assets/welcome-buddha-lotus-birds.jpg</span>
-        </div>
-      </div>
-    </div>
+  <!-- Welcome splash (text-only) -->
+  <div id="welcome-splash" class="welcome-splash splash-text-only" role="dialog" aria-modal="true" aria-labelledby="welcome-title" hidden>
     <h1 id="welcome-title" class="sweep-heading">Narelle's Keeper</h1>
     <p class="lede">A quiet companion. Ara is here with you.</p>
     <button type="button" class="btn btn-primary" id="btn-enter-today">Enter Today</button>
@@ -42,11 +31,7 @@
   <div class="app">
     <header class="topbar">
       <p class="brand">Narelle's Keeper</p>
-      <div class="rosie-card" aria-label="Rosie">
-        <span class="rosie-dot" aria-hidden="true">
-          <img src="https://iili.io/naV5gqJ.jpg" alt=""
-            onerror="window.nkImgFail && window.nkImgFail(this)" />
-        </span>
+      <div class="rosie-card rosie-text-only" aria-label="Rosie">
         <div class="rosie-text">
           <strong>Rosie</strong>
           <span>our girl</span>
@@ -57,12 +42,15 @@
     <main class="stage">
       <!-- Today -->
       <section id="panel-today" class="panel is-active" role="tabpanel" aria-labelledby="nav-today">
-        <div class="hero hero--video" aria-label="Buddha on lotus">
+        <p id="greeting" class="greeting">Good evening, Narelle — it's Ara</p>
+        <h1 class="sweep-heading">Today</h1>
+        <p class="lede">A calm place to begin the day.</p>
+
+        <div class="hero hero--video" aria-label="Cool cyan lotus on dark water">
           <video
             id="hero-video"
             class="hero-video"
-            src="https://h.uguu.se/CfEYGMwF.mp4"
-            poster="https://iili.io/naTqwJf.jpg"
+            src="https://n.uguu.se/YyzZhZPL.mp4"
             muted
             autoplay
             loop
@@ -70,8 +58,6 @@
             webkit-playsinline
             preload="metadata"
           ></video>
-          <img class="hero-fallback" src="https://iili.io/naTqwJf.jpg" alt="" hidden
-            onerror="window.nkImgFail && window.nkImgFail(this)" />
           <div class="hero-veil" aria-hidden="true"></div>
           <button type="button" class="hero-sound-btn" id="btn-hero-sound" aria-pressed="false">
             Play sound
@@ -80,15 +66,8 @@
         <script>
           (function () {
             var v = document.getElementById("hero-video");
-            var fb = document.querySelector("#panel-today .hero-fallback");
             var btn = document.getElementById("btn-hero-sound");
             if (!v) return;
-            function showFallback() {
-              v.hidden = true;
-              if (fb) fb.hidden = false;
-              if (btn) btn.hidden = true;
-            }
-            v.addEventListener("error", showFallback);
             var p = v.play();
             if (p && p.catch) p.catch(function () {});
             if (!btn) return;
@@ -111,10 +90,6 @@
           })();
         </script>
 
-        <p id="greeting" class="greeting">Good evening, Narelle — it's Ara</p>
-        <h1 class="sweep-heading">Today</h1>
-        <p class="lede">A calm place to begin the day.</p>
-
         <div class="today-card" aria-live="polite">
           <h2>Next medicine</h2>
           <p id="next-due" class="next-due is-quiet">All quiet for now</p>
@@ -131,29 +106,10 @@
 
         <p class="footnote">Ara is here with you. Medicines and appointments live in their rooms — tick them when you're ready.</p>
 
-        <div class="photo-slot photo-slot-sm" data-slot="today-close">
-          <img src="https://iili.io/naTBWhB.jpg" alt="" loading="lazy"
-            onerror="window.nkImgFail && window.nkImgFail(this)" />
-          <div class="photo-fallback">
-            <strong>Closing light</strong>
-            <p>Lotus on water closes the day here.</p>
-            <span class="path-hint">assets/today-closer-lotus-water.jpg</span>
-          </div>
-        </div>
       </section>
 
       <!-- Medicines -->
       <section id="panel-medicines" class="panel" role="tabpanel" aria-labelledby="nav-medicines" hidden>
-        <div class="photo-slot photo-slot-header" data-slot="meds">
-          <img src="https://iili.io/naTBUIp.jpg" alt="" loading="lazy"
-            onerror="window.nkImgFail && window.nkImgFail(this)" />
-          <div class="photo-fallback">
-            <strong>Medicines</strong>
-            <p>Carved Buddha with pink and teal lotus.</p>
-            <span class="path-hint">assets/meds-carved-buddha.jpg</span>
-          </div>
-        </div>
-
         <h1 class="sweep-heading">Medicines</h1>
         <p class="lede">Your list, kept simply. Reminders while this page is open.</p>
 
@@ -201,16 +157,6 @@
 
       <!-- Appointments -->
       <section id="panel-appointments" class="panel" role="tabpanel" aria-labelledby="nav-appointments" hidden>
-        <div class="photo-slot photo-slot-header" data-slot="appts">
-          <img src="https://iili.io/naTBtp4.jpg" alt="" loading="lazy"
-            onerror="window.nkImgFail && window.nkImgFail(this)" />
-          <div class="photo-fallback">
-            <strong>Appointments</strong>
-            <p>Lotus on water with light rings.</p>
-            <span class="path-hint">assets/appointments-lotus-rings.jpg</span>
-          </div>
-        </div>
-
         <h1 class="sweep-heading">Appointments</h1>
         <p class="lede">What's ahead, kept simply. Checklist for what to bring.</p>
 
@@ -264,23 +210,6 @@
       <section id="panel-dog" class="panel" role="tabpanel" aria-labelledby="nav-dog" hidden>
         <h1 class="sweep-heading">Rosie</h1>
         <p class="lede">A soft corner for our girl.</p>
-        <div class="photo-slot" data-slot="rosie">
-          <img src="https://iili.io/naTC3Yb.jpg" alt="" loading="lazy"
-            onerror="window.nkImgFail && window.nkImgFail(this)" />
-          <div class="photo-fallback">
-            <strong>Rosie</strong>
-            <p>Butterfly photo will land here.</p>
-            <span class="path-hint">assets/rosie-butterfly.jpg</span>
-          </div>
-        </div>
-        <div class="photo-slot photo-slot-sm" data-slot="rosie-photo">
-          <img src="https://iili.io/naV5gqJ.jpg" alt="Rosie" loading="lazy"
-            onerror="window.nkImgFail && window.nkImgFail(this)" />
-          <div class="photo-fallback">
-            <strong>Rosie</strong>
-            <p>Her photo sits here.</p>
-          </div>
-        </div>
         <p class="lede coming">More for Rosie soon — walks, treats, and soft moments.</p>
       </section>
     </main>
