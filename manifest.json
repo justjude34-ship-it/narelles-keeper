@@ -1,0 +1,18 @@
+{
+  "name": "Narelle's Keeper",
+  "short_name": "Keeper",
+  "description": "A quiet companion for living well day to day.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0f1412",
+  "theme_color": "#0f1412",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Narelle's Keeper">
+  <rect width="512" height="512" rx="96" fill="#0f1412"/>
+  <circle cx="256" cy="256" r="150" fill="none" stroke="#e0b84a" stroke-width="18" opacity="0.85"/>
+  <circle cx="256" cy="256" r="70" fill="#f6e7a1" opacity="0.9"/>
+  <circle cx="256" cy="256" r="28" fill="#0f1412"/>
+</svg>
