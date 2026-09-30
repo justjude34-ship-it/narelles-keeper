@@ -33,19 +33,35 @@
   display: none !important;
 }
 
+.welcome-art {
+  display: block;
+  width: min(100%, 28rem);
+  height: auto;
+  max-height: 42vh;
+  object-fit: cover;
+  margin: 0 0 1.5rem;
+  border: 1px solid var(--card-border);
+  border-radius: 1.5rem;
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.3);
+}
+
 .welcome-splash .splash-frame {
   width: min(100%, 22rem);
   margin-bottom: 1.5rem;
 }
 
 .welcome-splash h1 {
+  width: 100%;
   margin: 0 0 0.5rem;
   font-size: clamp(1.8rem, 7vw, 2.4rem);
 }
 
 .welcome-splash .lede {
+  width: 100%;
   margin-bottom: 1.5rem;
+  padding-inline: 0.25rem;
   max-width: 20rem;
+  overflow: visible;
 }
 
 .welcome-splash .btn {
