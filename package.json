@@ -1,0 +1,7 @@
+{
+  "name": "narelles-keeper",
+  "private": true,
+  "scripts": {
+    "build": "node decode-hero.js"
+  }
+}
