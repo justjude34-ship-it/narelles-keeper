@@ -1,4 +1,4 @@
-const CACHE = "narelles-keeper-v4";
+const CACHE = "narelles-keeper-v5";
 const ASSETS = [
   "./",
   "./index.html",
@@ -24,7 +24,6 @@ self.addEventListener("activate", function (e) {
 
 self.addEventListener("fetch", function (e) {
   if (e.request.method !== "GET") return;
-  // Network-first for navigations/HTML so phones don't stick on an old shell
   var accept = e.request.headers.get("accept") || "";
   var isNav = e.request.mode === "navigate" || accept.indexOf("text/html") !== -1;
   if (isNav) {
@@ -37,6 +36,19 @@ self.addEventListener("fetch", function (e) {
         return caches.match(e.request).then(function (hit) {
           return hit || caches.match("./index.html");
         });
+      })
+    );
+    return;
+  }
+  var url = e.request.url || "";
+  if (url.indexOf("styles.css") !== -1 || url.indexOf("app.js") !== -1 || url.indexOf("sw.js") !== -1) {
+    e.respondWith(
+      fetch(e.request).then(function (res) {
+        var copy = res.clone();
+        caches.open(CACHE).then(function (c) { c.put(e.request, copy); });
+        return res;
+      }).catch(function () {
+        return caches.match(e.request);
       })
     );
     return;

@@ -1,23 +1,23 @@
 # Narelle's Keeper
 
-A quiet companion PWA for Narelle — living well day to day. Ara speaks softly.
+Quiet companion PWA for living well day to day.
 
-## Step 2 (this release)
+## Live
+https://narelles-keeper.vercel.app
 
-- Sage accent (replaces gold)
-- Medicines room: add / edit / remove meds (name, dose, time(s)), tick taken for today, persisted in `localStorage`
-- Alarms scaffolding: Notification permission + help copy; schedule browser notifications for upcoming doses while the tab/app is open (Service Worker `showNotification` best-effort)
-- Today shows next-due in sky blue with warm Ara copy
-- Soft placeholder for Buddha statue + greenery (photo later)
+## This build
+- **Jet black** UI (`#000000` / `#050505`) with white headings and soft blue/cyan accents
+- Today hero: **Buddha-on-lotus video** (muted autoplay loop) + gentle **Play sound** control
+- Photo slots: welcome, hero poster, today closer, meds, appointments, Rosie topbar + room
+- SW **v5** — network-first HTML/CSS/JS (hard-refresh if Chrome sticks on an old shell)
 
-**Not yet:** full iOS background push (needs Web Push + backend — noted as TODO), appointments, Rosie photo.
-
-## Local
-
-```bash
-npx serve .
-```
-
-## Deploy
-
-Static site on Vercel project `my-keeper-home`, live alias `https://narelles-keeper.vercel.app/`.
+## Photos (`assets/`)
+| File | Where |
+|------|--------|
+| welcome-buddha-lotus-birds.jpg | Welcome splash |
+| hero-buddha-blue-lotus.jpg | Hero video poster |
+| today-closer-lotus-water.jpg | Today closer |
+| meds-carved-buddha.jpg | Medicines |
+| appointments-lotus-rings.jpg | Appointments |
+| rosie.jpg | Topbar |
+| rosie-butterfly.jpg | Rosie room |
