@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f1412" />
+  <meta name="description" content="Narelle's Keeper — a quiet companion for living well day to day." />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Narelle's Keeper</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/icon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient" aria-hidden="true">
+    <div class="glow glow-a"></div>
+    <div class="glow glow-b"></div>
+    <div class="glow glow-c"></div>
+  </div>
+
+  <div class="app">
+    <header class="topbar">
+      <p class="brand">Narelle's Keeper</p>
+      <div class="rosie-card" aria-label="Rosie placeholder">
+        <span class="rosie-dot" aria-hidden="true"></span>
+        <div class="rosie-text">
+          <strong>Rosie</strong>
+          <span>our girl · photo soon</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="stage">
+      <section id="panel-today" class="panel is-active" role="tabpanel" aria-labelledby="nav-today">
+        <p id="greeting" class="greeting">Good evening, Narelle</p>
+        <h1 class="sweep-heading">Today</h1>
+        <p class="lede">A calm place to begin the day.</p>
+
+        <div class="hero" aria-hidden="true">
+          <div class="buddha-glow"></div>
+          <svg class="buddha" viewBox="0 0 240 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Serene seated figure">
+            <ellipse cx="120" cy="78" rx="58" ry="62" fill="url(#halo)" opacity="0.35"/>
+            <path d="M60 250 C70 190, 80 155, 95 135 C100 150, 140 150, 145 135 C160 155, 170 190, 180 250 Z"
+                  fill="url(#robe)" stroke="#e0b84a" stroke-width="1.2" opacity="0.9"/>
+            <ellipse cx="120" cy="248" rx="72" ry="14" fill="#1a221c" opacity="0.55"/>
+            <path d="M55 245 Q120 268 185 245" fill="none" stroke="#f6e7a1" stroke-width="1.4" opacity="0.45"/>
+            <ellipse cx="120" cy="175" rx="28" ry="36" fill="url(#skin)"/>
+            <ellipse cx="120" cy="195" rx="18" ry="10" fill="#f3d67a" opacity="0.55"/>
+            <ellipse cx="120" cy="88" rx="34" ry="40" fill="url(#skin)"/>
+            <ellipse cx="120" cy="58" rx="30" ry="22" fill="#1c2420"/>
+            <ellipse cx="120" cy="42" rx="12" ry="10" fill="#24302a"/>
+            <path d="M105 90 Q112 94 119 90" fill="none" stroke="#2a3530" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M121 90 Q128 94 135 90" fill="none" stroke="#2a3530" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M112 105 Q120 111 128 105" fill="none" stroke="#6a5a3a" stroke-width="1.4" stroke-linecap="round" opacity="0.7"/>
+            <ellipse cx="86" cy="95" rx="6" ry="12" fill="url(#skin)"/>
+            <ellipse cx="154" cy="95" rx="6" ry="12" fill="url(#skin)"/>
+            <defs>
+              <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#f6e7a1"/>
+                <stop offset="100%" stop-color="#f6e7a1" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="robe" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#2a3830"/>
+                <stop offset="50%" stop-color="#1a2420"/>
+                <stop offset="100%" stop-color="#324038"/>
+              </linearGradient>
+              <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#f3e2b8"/>
+                <stop offset="100%" stop-color="#e0b84a"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <div class="chips" aria-label="Sample status">
+          <span class="chip chip-due">Due soon</span>
+          <span class="chip chip-quiet">All quiet</span>
+        </div>
+
+        <p class="footnote">Medicines and appointments arrive in the next steps. For now — breathe, and be here.</p>
+      </section>
+
+      <section id="panel-medicines" class="panel" role="tabpanel" aria-labelledby="nav-medicines" hidden>
+        <h1 class="sweep-heading">Medicines</h1>
+        <p class="lede coming">Coming soon — gentle reminders, when you're ready.</p>
+      </section>
+
+      <section id="panel-appointments" class="panel" role="tabpanel" aria-labelledby="nav-appointments" hidden>
+        <h1 class="sweep-heading">Appointments</h1>
+        <p class="lede coming">Coming soon — what's ahead, kept simply.</p>
+      </section>
+
+      <section id="panel-dog" class="panel" role="tabpanel" aria-labelledby="nav-dog" hidden>
+        <h1 class="sweep-heading">Rosie</h1>
+        <p class="lede coming">Coming soon — a soft corner for our girl.</p>
+      </section>
+    </main>
+
+    <nav class="dock" role="tablist" aria-label="Main">
+      <button type="button" class="dock-btn is-active" id="nav-today" role="tab" aria-selected="true" aria-controls="panel-today" data-panel="today">
+        <span class="dock-icon" aria-hidden="true">◉</span>
+        <span>Today</span>
+      </button>
+      <button type="button" class="dock-btn" id="nav-medicines" role="tab" aria-selected="false" aria-controls="panel-medicines" data-panel="medicines">
+        <span class="dock-icon" aria-hidden="true">✚</span>
+        <span>Medicines</span>
+      </button>
+      <button type="button" class="dock-btn" id="nav-appointments" role="tab" aria-selected="false" aria-controls="panel-appointments" data-panel="appointments">
+        <span class="dock-icon" aria-hidden="true">◌</span>
+        <span>Appointments</span>
+      </button>
+      <button type="button" class="dock-btn" id="nav-dog" role="tab" aria-selected="false" aria-controls="panel-dog" data-panel="dog">
+        <span class="dock-icon" aria-hidden="true">♥</span>
+        <span>Dog</span>
+      </button>
+    </nav>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
