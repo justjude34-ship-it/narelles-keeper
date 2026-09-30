@@ -287,7 +287,6 @@
   </div>
 
   <script>
-    // Early img fallback so missing assets don't flash broken icons before app.js
     window.nkImgFail = function (img) {
       try {
         img.hidden = true;
@@ -299,6 +298,7 @@
       } catch (e) { /* ignore */ }
     };
   </script>
-  <script src="app.js"></script>
+  <script src="assets/nk-app-a.js"></script>
+  <script src="assets/nk-app-b.js"></script>
 </body>
 </html>
