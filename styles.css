@@ -3,12 +3,14 @@
   --bg-soft: #151b18;
   --text: #f5f3eb;
   --muted: #a8b0a8;
-  --gold-light: #f6e7a1;
-  --gold: #e0b84a;
-  --gold-mid: #f3d67a;
+  --sage-light: #d4e2ce;
+  --sage: #8fa88a;
+  --sage-mid: #b5c9ae;
   --sky: #7eb6d9;
+  --sky-soft: rgba(126, 182, 217, 0.18);
   --card: rgba(255, 255, 255, 0.05);
-  --card-border: rgba(246, 231, 161, 0.18);
+  --card-border: rgba(143, 168, 138, 0.22);
+  --danger: #c97a7a;
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --dock-h: 5.5rem;
 }
@@ -33,6 +35,7 @@ body {
   overflow-x: hidden;
 }
 
+/* Ambient sage light drift */
 .ambient {
   position: fixed;
   inset: 0;
@@ -52,7 +55,7 @@ body {
 .glow-a {
   width: 42vmin;
   height: 42vmin;
-  background: var(--gold-light);
+  background: var(--sage-light);
   top: -8%;
   left: 10%;
 }
@@ -60,7 +63,7 @@ body {
 .glow-b {
   width: 55vmin;
   height: 55vmin;
-  background: var(--gold);
+  background: var(--sage);
   bottom: 5%;
   right: -12%;
   animation-duration: 36s;
@@ -71,7 +74,7 @@ body {
 .glow-c {
   width: 30vmin;
   height: 30vmin;
-  background: var(--gold-mid);
+  background: var(--sage-mid);
   top: 42%;
   left: 55%;
   animation-duration: 22s;
@@ -96,6 +99,7 @@ body {
   flex-direction: column;
 }
 
+/* Top bar + Rosie */
 .topbar {
   display: flex;
   align-items: center;
@@ -108,7 +112,7 @@ body {
   margin: 0;
   font-size: 0.85rem;
   letter-spacing: 0.04em;
-  color: var(--gold-mid);
+  color: var(--sage-mid);
   font-weight: 500;
 }
 
@@ -128,8 +132,8 @@ body {
   height: 2.25rem;
   border-radius: 50%;
   background: linear-gradient(145deg, #3a4540, #1a221c);
-  border: 1px solid rgba(246, 231, 161, 0.35);
-  box-shadow: 0 0 12px rgba(224, 184, 74, 0.15);
+  border: 1px solid rgba(181, 201, 174, 0.4);
+  box-shadow: 0 0 12px rgba(143, 168, 138, 0.2);
   flex-shrink: 0;
 }
 
@@ -150,6 +154,7 @@ body {
   color: var(--muted);
 }
 
+/* Stage panels */
 .stage {
   flex: 1;
 }
@@ -186,9 +191,9 @@ body {
     100deg,
     #ffffff 0%,
     #ffffff 38%,
-    var(--gold-light) 48%,
-    var(--gold) 52%,
-    var(--gold-mid) 56%,
+    var(--sage-light) 48%,
+    var(--sage) 52%,
+    var(--sage-mid) 56%,
     #ffffff 66%,
     #ffffff 100%
   );
@@ -196,10 +201,10 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: goldSweep 7s ease-in-out infinite;
+  animation: sageSweep 7s ease-in-out infinite;
 }
 
-@keyframes goldSweep {
+@keyframes sageSweep {
   0%, 100% { background-position: 100% 50%; }
   50% { background-position: 0% 50%; }
 }
@@ -218,41 +223,75 @@ body {
   border-radius: 1.25rem;
 }
 
+/* Soft hero placeholder — photo of Buddha + greenery later */
 .hero {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0.5rem 0 1.75rem;
-  min-height: 16rem;
+  min-height: 10rem;
 }
 
-.buddha-glow {
-  position: absolute;
-  width: 14rem;
-  height: 14rem;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(246, 231, 161, 0.35) 0%, rgba(224, 184, 74, 0.12) 45%, transparent 70%);
-  animation: softPulse 6s ease-in-out infinite;
-  filter: blur(4px);
+.hero-placeholder {
+  width: 100%;
+  max-width: 16rem;
+  padding: 1.75rem 1.25rem;
+  text-align: center;
+  border-radius: 1.5rem;
+  background: radial-gradient(circle at 50% 40%, rgba(181, 201, 174, 0.18), transparent 70%), var(--card);
+  border: 1px solid var(--card-border);
 }
 
-@keyframes softPulse {
-  0%, 100% { transform: scale(1); opacity: 0.85; }
-  50% { transform: scale(1.08); opacity: 1; }
+.hero-placeholder p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
 }
 
-.buddha {
-  position: relative;
-  width: min(14rem, 70vw);
-  height: auto;
-  filter: drop-shadow(0 0 18px rgba(224, 184, 74, 0.35));
-  animation: buddhaFloat 8s ease-in-out infinite;
+.hero-placeholder strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--sage-mid);
+  font-weight: 600;
+  font-size: 1rem;
 }
 
-@keyframes buddhaFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+/* Today status */
+.today-card {
+  padding: 1.15rem 1.25rem;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.today-card h2 {
+  margin: 0 0 0.65rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.next-due {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--sky);
+  line-height: 1.35;
+}
+
+.next-due.is-quiet {
+  color: var(--sage-mid);
+  font-weight: 500;
+}
+
+.next-due-detail {
+  margin: 0.45rem 0 0;
+  font-size: 0.92rem;
+  color: var(--muted);
 }
 
 .chips {
@@ -279,7 +318,7 @@ body {
 }
 
 .chip-quiet {
-  color: var(--gold-light);
+  color: var(--sage-light);
   background: var(--card);
   border-color: var(--card-border);
 }
@@ -291,6 +330,256 @@ body {
   max-width: 22rem;
 }
 
+/* Medicines */
+.meds-toolbar {
+  display: flex;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  appearance: none;
+  border: 1px solid transparent;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  min-height: 3rem;
+  padding: 0.65rem 1.15rem;
+  border-radius: 999px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.btn-primary {
+  background: var(--sage);
+  color: #0f1412;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: var(--sage-mid);
+  outline: none;
+}
+
+.btn-ghost {
+  background: var(--card);
+  color: var(--text);
+  border-color: var(--card-border);
+}
+
+.btn-ghost:hover,
+.btn-ghost:focus-visible {
+  border-color: var(--sage);
+  color: var(--sage-light);
+  outline: none;
+}
+
+.btn-danger {
+  background: transparent;
+  color: var(--danger);
+  border-color: rgba(201, 122, 122, 0.35);
+}
+
+.btn-sm {
+  min-height: 2.5rem;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+}
+
+.alarms-card,
+.form-card,
+.med-card {
+  padding: 1.15rem 1.25rem;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.alarms-card h2,
+.form-card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  color: var(--sage-light);
+  font-weight: 600;
+}
+
+.alarms-card p,
+.help-copy {
+  margin: 0 0 0.85rem;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.alarms-status {
+  margin: 0 0 0.85rem;
+  font-size: 0.9rem;
+  color: var(--sage-mid);
+}
+
+.alarms-status.is-denied {
+  color: var(--danger);
+}
+
+.alarms-status.is-granted {
+  color: var(--sky);
+}
+
+.med-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.med-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.med-name {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.med-dose {
+  margin: 0.2rem 0 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.med-actions {
+  display: flex;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.dose-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.55rem 0;
+  border-top: 1px solid rgba(143, 168, 138, 0.15);
+}
+
+.dose-time {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--sky);
+  font-variant-numeric: tabular-nums;
+}
+
+.dose-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  cursor: pointer;
+  min-height: 2.75rem;
+  padding: 0.25rem 0.35rem;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dose-check input {
+  width: 1.35rem;
+  height: 1.35rem;
+  accent-color: var(--sage);
+  cursor: pointer;
+}
+
+.dose-check.is-done {
+  color: var(--sage-mid);
+}
+
+.empty-state {
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--muted);
+  background: var(--card);
+  border: 1px dashed var(--card-border);
+  border-radius: 1.25rem;
+}
+
+/* Forms */
+.form-card[hidden] {
+  display: none !important;
+}
+
+.field {
+  margin-bottom: 0.95rem;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--sage-mid);
+  font-weight: 500;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.85rem;
+  border: 1px solid var(--card-border);
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--text);
+  font: inherit;
+  font-size: 1rem;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--sage);
+  box-shadow: 0 0 0 2px rgba(143, 168, 138, 0.25);
+}
+
+.field .hint {
+  margin: 0.35rem 0 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.times-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.time-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.time-row input[type="time"] {
+  flex: 1;
+  min-height: 3rem;
+  color-scheme: dark;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+/* Bottom dock — large touch targets */
 .dock {
   position: fixed;
   left: 50%;
@@ -304,7 +593,7 @@ body {
   padding: 0.55rem 0.65rem calc(0.55rem + var(--safe-bottom));
   background: rgba(15, 20, 18, 0.92);
   backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(246, 231, 161, 0.12);
+  border-top: 1px solid rgba(143, 168, 138, 0.15);
   z-index: 10;
 }
 
@@ -336,8 +625,8 @@ body {
 }
 
 .dock-btn.is-active {
-  color: var(--gold-mid);
-  background: rgba(224, 184, 74, 0.1);
+  color: var(--sage-mid);
+  background: rgba(143, 168, 138, 0.12);
 }
 
 .dock-icon {
@@ -348,8 +637,6 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .glow,
   .sweep-heading,
-  .buddha,
-  .buddha-glow,
   .panel {
     animation: none !important;
   }
