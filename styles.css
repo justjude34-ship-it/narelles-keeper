@@ -127,6 +127,16 @@ body {
   min-height: 3rem;
 }
 
+.rosie-avatar {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(126, 200, 240, 0.4);
+  box-shadow: 0 0 12px rgba(74, 163, 216, 0.25);
+  flex-shrink: 0;
+}
+
 .rosie-dot {
   width: 2.25rem;
   height: 2.25rem;
@@ -255,6 +265,32 @@ body {
   color: var(--blue-mid);
   font-weight: 600;
   font-size: 1rem;
+}
+
+.rosie-hero {
+  width: 100%;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 1.5rem;
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.22);
+}
+
+.rosie-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 640 / 522;
+  object-fit: cover;
+}
+
+.rosie-hero figcaption {
+  padding: 0.7rem 1rem 0.85rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
 }
 
 /* Today status */
