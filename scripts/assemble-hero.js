@@ -3,7 +3,7 @@ const path=require("path");
 const parts=[];
 for (let i=0;i<10;i++) {
   const f=path.join(__dirname, `hero-chunk-${String(i).padStart(2,"0")}.txt`);
-  parts.push(fs.readFileSync(f,"utf8").trim());
+  parts.push(fs.readFileSync(f,"utf8").replace(/\s+/g,""));
 }
 const buf=Buffer.from(parts.join(""),"base64");
 const out=path.join(__dirname,"..","assets","hero-lotus-cool.jpg");
