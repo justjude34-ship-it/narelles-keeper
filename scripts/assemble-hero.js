@@ -1,8 +1,9 @@
 const fs=require("fs");
 const path=require("path");
 const parts=[];
-for (let i=0;i<40;i++) {
-  const f=path.join(__dirname, `hero-b64-q${String(i).padStart(2,"0")}.txt`);
+const n=120;
+for (let i=0;i<n;i++) {
+  const f=path.join(__dirname, `hero-b64-r${String(i).padStart(3,"0")}.txt`);
   parts.push(fs.readFileSync(f,"utf8").replace(/\s+/g,""));
 }
 const buf=Buffer.from(parts.join(""),"base64");
