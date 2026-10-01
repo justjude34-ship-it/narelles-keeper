@@ -1,9 +1,13 @@
-const CACHE = "narelles-keeper-v14";
+const CACHE = "narelles-keeper-v15";
 const ASSETS = [
   "./",
   "./index.html",
   "./styles.css",
   "./app.js",
+  "./assets/nk-p0.js",
+  "./assets/nk-p1.js",
+  "./assets/nk-p2.js",
+  "./assets/nk-p3.js",
   "./manifest.json",
   "./assets/icon.svg",
   "./assets/placements.css"
@@ -17,10 +21,11 @@ self.addEventListener("install", function (e) {
 self.addEventListener("activate", function (e) {
   e.waitUntil(
     caches.keys().then(function (keys) {
-      return Promise.all(keys.filter(function (k) { return k !== CACHE; }).map(function (k) { return caches.delete(k); }));
-    })
+      return Promise.all(
+        keys.filter(function (k) { return k !== CACHE; }).map(function (k) { return caches.delete(k); })
+      );
+    }).then(function () { return self.clients.claim(); })
   );
-  self.clients.claim();
 });
 
 self.addEventListener("fetch", function (e) {
@@ -42,7 +47,7 @@ self.addEventListener("fetch", function (e) {
     return;
   }
   var url = e.request.url || "";
-  if (url.indexOf("styles.css") !== -1 || url.indexOf("placements.css") !== -1 || url.indexOf("app.js") !== -1 || url.indexOf("sw.js") !== -1) {
+  if (url.indexOf("styles.css") !== -1 || url.indexOf("placements.css") !== -1 || url.indexOf("app.js") !== -1 || url.indexOf("nk-p") !== -1 || url.indexOf("sw.js") !== -1) {
     e.respondWith(
       fetch(e.request).then(function (res) {
         var copy = res.clone();
