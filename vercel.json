@@ -1,7 +1,5 @@
 {
   "cleanUrls": true,
-  "buildCommand": "node scripts/assemble-hero.js",
-  "outputDirectory": ".",
   "headers": [
     {
       "source": "/sw.js",
