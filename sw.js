@@ -1,6 +1,5 @@
-const CACHE = "narelles-keeper-v29";
+const CACHE = "narelles-keeper-v30";
 const ASSETS = [
-  "./assets/hero-lotus-cool.jpg",
   "./",
   "./index.html",
   "./styles.css",
@@ -43,7 +42,7 @@ self.addEventListener("fetch", function (e) {
     return;
   }
   var url = e.request.url || "";
-  if (url.indexOf("styles.css") !== -1 || url.indexOf("placements.css") !== -1 || url.indexOf("app.js") !== -1 || url.indexOf("nk-p") !== -1 || url.indexOf("nk-ara") !== -1 || url.indexOf("nk-hero") !== -1 || url.indexOf("hero-lotus") !== -1 || url.indexOf("sw.js") !== -1) {
+  if (url.indexOf("styles.css") !== -1 || url.indexOf("placements.css") !== -1 || url.indexOf("app.js") !== -1 || url.indexOf("nk-p") !== -1 || url.indexOf("nk-ara") !== -1 || url.indexOf("nk-hero") !== -1 || url.indexOf("sw.js") !== -1) {
     e.respondWith(
       fetch(e.request).then(function (res) {
         var copy = res.clone();
