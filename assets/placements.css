@@ -145,7 +145,8 @@
   word-break: break-all;
 }
 
-/* Today hero video — full-width cover */
+/* Today hero still — full-width cover */
+.hero--still,
 .hero--video {
   width: 100%;
   max-width: none;
@@ -159,20 +160,8 @@
   position: relative;
 }
 
+.hero--still .hero-still,
 .hero--video .hero-fallback {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 14rem;
-  max-height: 22rem;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 1.5rem;
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-.hero-video {
   display: block;
   width: 100%;
   height: 100%;
@@ -183,12 +172,18 @@
   border-radius: 1.5rem;
   position: relative;
   z-index: 1;
-  background: transparent;
+  background: #000;
+}
+
+.hero-video,
+.hero-sound-btn {
+  display: none !important;
 }
 
 .hero-veil {
   position: absolute;
   inset: 0;
+  z-index: 2;
   border-radius: 1.5rem;
   pointer-events: none;
   background: linear-gradient(
@@ -197,30 +192,6 @@
     rgba(0, 0, 0, 0.12) 40%,
     rgba(0, 0, 0, 0.45) 100%
   );
-}
-
-.hero-sound-btn {
-  position: absolute;
-  right: 0.75rem;
-  bottom: 0.75rem;
-  z-index: 2;
-  appearance: none;
-  border: 1px solid rgba(126, 200, 240, 0.45);
-  background: rgba(5, 6, 10, 0.72);
-  color: var(--blue-light);
-  font: inherit;
-  font-size: 0.8rem;
-  font-weight: 600;
-  min-height: 2.5rem;
-  padding: 0.4rem 0.9rem;
-  border-radius: 999px;
-  cursor: pointer;
-  backdrop-filter: blur(8px);
-}
-
-.hero-sound-btn.is-on {
-  background: rgba(126, 200, 240, 0.22);
-  color: #fff;
 }
 
 .appt-toolbar {
@@ -273,3 +244,19 @@
 /* Text-only welcome / Rosie */
 .welcome-splash.splash-text-only .splash-frame { display: none; }
 .rosie-card.rosie-text-only .rosie-dot { display: none; }
+
+/* One large Talk to Ara control — hide FAB duplicate */
+.ara-mic-fab{display:none!important;}
+.ara-mic-btn.ara-mic-btn--lg,.ara-mic-btn{
+  width:100%;
+  min-height:4.5rem;
+  font-size:1.35rem;
+  padding:1.1rem 1.35rem;
+  border-radius:1.25rem;
+  letter-spacing:0.01em;
+}
+.ara-mic-btn.is-listening{
+  background:var(--blue-mid,#4aa3d8);
+  box-shadow:0 0 0 4px rgba(126,200,240,0.4);
+}
+.hero-video,.hero-sound-btn,#btn-hero-mute,.mute-btn{display:none!important;}
