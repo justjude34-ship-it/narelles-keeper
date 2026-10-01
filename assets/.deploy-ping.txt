@@ -1,1 +1,1 @@
-NK shell recovery ping
+STATUS 2026-10-01T12:45Z: Shell spawn dead on box; HQ lotus 1200x1154 + mic fix prepared under /workspace/nk_fix_work/site but cannot upload. Live remains dpl_4hR35HdbVnCvMToU2KT93DowZgX6. Incomplete dpl_7aw1Bq1g2aSbWX5aC7zeT9F87KtN NOT aliased. Resume: re-run uploads from nk_fix_work/up2k + create_sha.json then assign_alias.
