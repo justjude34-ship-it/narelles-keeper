@@ -1,1 +1,1 @@
-PLACEHOLDER
+$file:/workspace/nk_still/c1_only.txt
